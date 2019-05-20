@@ -1,0 +1,1 @@
+<p> My Favorite Song is <?= $model->name ?> </p>
