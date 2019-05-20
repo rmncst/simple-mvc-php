@@ -26,7 +26,6 @@ class DatabaseFactory
 
             self::$_databaseInstance =  $db->__connect();
 
-            echo 'asdasd'; die();
         }
 
         return self::$_databaseInstance;

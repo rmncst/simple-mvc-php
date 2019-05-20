@@ -22,29 +22,25 @@ class TableGateway
 
     public function insert(array $data)
     {
-        // Logica para montar o insert
-        foreach ($data as $campo => $valor) {
-            $campos[] = $campo;
-            $valores[] = "'$valor'";
+        foreach ($data as $field => $value) {
+            $fields[] = $field;
+            $values[] = "'$value'";
         }
 
-        $campos = implode(',', $campos);
-        $valores = implode(',', $valores);
+        $fields = implode(',', $fields);
+        $values = implode(',', $values);
 
-        $insert = "INSERT INTO {$this->_table}($campos)VALUES($valores)";
+        $insert = "INSERT INTO {$this->_table}($fields)VALUES($values)";
 
-        return $this->_connection->query($insert);
+        return $this->_connection->exec($insert);
     }
 
     public function update(array $dados, $where)
     {
-        // Logica para montar o update
         foreach ($dados as $campo => $valor) {
             $sets[] = "$campo='$valor'";
         }
-
         $sets = implode(',', $sets);
-
         $update = "UPDATE {$this->_table} SET $sets WHERE $where";
 
         return $this->_connection->query($update);
@@ -78,7 +74,7 @@ class TableGateway
         return $pdoSt->fetchAll(\PDO::FETCH_ASSOC);
     }
 
-    public function buscarRegistro($where, $campos = '*')
+    public function find($where, $campos = '*')
     {
         // Lógica para retornar um registro
         $select = "SELECT $campos FROM $this->_table WHERE $where";
@@ -87,13 +83,13 @@ class TableGateway
         return $pdoSt->fetch(\PDO::FETCH_ASSOC);
     }
 
-    public function excluir($where)
+    public function delete($where)
     {
         $delete = "DELETE FROM $this->_table WHERE $where";
         return $this->_connection->query($delete);
     }
 
-    public function qtde_registros()
+    public function count()
     {
         $stmt = $this->_connection->prepare("SELECT count(1) as nreg FROM $this->_table");
         $stmt->execute();
@@ -101,13 +97,13 @@ class TableGateway
         return $consulta['nreg'];
     }
 
-    public function trocar_table($_table){
+    public function swapTable($_table){
         if($_table != ''){
             $this->_table = $_table;
         }
     }
 
-    public function rodarsql($sql){
+    public function execSql($sql){
         $stmt = $this->_connection->prepare($sql);
         return $stmt->execute();
     }
