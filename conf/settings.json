@@ -5,7 +5,7 @@
             "port" : "3306",
             "user" : "root",
             "password" : "p@ssw0rd",
-            "dbname" : "test",
+            "dbname" : "media",
             "driver" : "mysql"
         }
     } ,
@@ -15,5 +15,9 @@
         "namespaceApplication" : "Application",
         "directoryCoreSource" : "core",
         "namespaceCoreApplication" : "Core"
-    }
+    },
+    "application" : {
+        "applicationName": "Simple MVC PHP",
+        "applicationTittle": "Simple MVC PHP"
+    } 
 }

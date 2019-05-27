@@ -62,37 +62,37 @@ class MvcUtils
             throw new HttpException("Erro ao mapear controller {$temp}", 404);
         }
         $this->_controllerPath = $temp;
-
-
         $classReflect = new \ReflectionClass($this->_controllerPath);
         if(!$classReflect->hasMethod($this->_actionName)) {
             throw new HttpException("Erro ao mapear action", 404);
         }
-
         $method = $classReflect->getMethod($this->_actionName);
         if($method->getNumberOfRequiredParameters() > count($this->_segmentParams)) {
             throw new HttpException("Número inválido de parâmetros", 404);
         }
-
         $res = $method->invokeArgs(new $this->_controllerPath, $this->_segmentParams);
-        
         return $this->handlerView($res['view'], $res["model"]);
     }
     
     private function handlerView($viewName, $_model) {
         $model = $_model;
+        $masterView = 'master';
         ob_start();
         include($this->getViewFile($viewName));
         $content = ob_get_clean();             
         ob_start();
-        include($this->getViewFile('master'));
+        if($masterView !== null) {
+            include($this->getViewFile($masterView));
+        } else {
+            echo $content;
+        }
         return ob_get_clean();
     }
     
     private function getViewFile($viewName) {
         $temp = __DIR__.'/../'.self::DEFAULT_PATH_VIEW.$viewName.'.view.php';
         if(!file_exists($temp)){
-            throw new HttpException("View não mapeada", 500);
+            throw new HttpException("View não mapeada $viewName", 500);
         }
         return $temp;
     }

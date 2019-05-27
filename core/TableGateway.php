@@ -42,7 +42,6 @@ class TableGateway
         }
         $sets = implode(',', $sets);
         $update = "UPDATE {$this->_table} SET $sets WHERE $where";
-
         return $this->_connection->query($update);
     }
 

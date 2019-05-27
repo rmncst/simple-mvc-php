@@ -1,0 +1,44 @@
+{
+  "menu": [
+    {
+      "label": "Dashboard",
+      "icon": "fas fa-fw fa-tachometer-alt",
+      "link": "/Home/Index",
+      "children": null
+    },
+    {
+      "label": "Cadastros",
+      "icon": "fas fa-fw fa-tachometer-alt",
+      "link": null,
+      "children": [
+        {
+          "label": "Musicas",
+          "icon": null,
+          "link": "/Music/Index"
+        },
+        {
+          "label": "Register",
+          "icon": null,
+          "link": "/Home/Index"
+        },
+        {
+          "label": "Forgot Password",
+          "icon": null,
+          "link": "/Home/Index"
+        }
+      ]
+    },
+    {
+      "label": "Charts",
+      "icon": "fas fa-fw fa-chart-area",
+      "link": "/Home/Charts",
+      "children": null
+    },
+    {
+      "label": "Tables",
+      "icon": "fas fa-fw fa-table",
+      "link": "/Home/Index",
+      "children": null
+    }
+  ]
+}

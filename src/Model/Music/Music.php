@@ -6,7 +6,7 @@
  * and open the template in the editor.
  */
 
-namespace Application\Model;
+namespace Application\Model\Music;
 
 /**
  * Description of Music
@@ -14,7 +14,12 @@ namespace Application\Model;
  * @author Aluno
  */
 class Music {
+    public $id;
     public $name;
     public $artist;
     public $duration;
+    public $link;
+
+    public $allMusics = [];
+    public $errors = [];
 }
