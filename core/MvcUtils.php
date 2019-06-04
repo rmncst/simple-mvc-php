@@ -71,6 +71,10 @@ class MvcUtils
             throw new HttpException("Número inválido de parâmetros", 404);
         }
         $res = $method->invokeArgs(new $this->_controllerPath, $this->_segmentParams);
+        if(isset($res['redirect']) && $res['redirect'] === true) {
+             header('Location: ' . $res['uri'], true);
+             die();
+        }
         return $this->handlerView($res['view'], $res["model"]);
     }
     
