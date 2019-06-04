@@ -9,9 +9,9 @@ function view($name, $model, $attr = null) {
 }
 
 function redirectToUri($uri) {
-    $path = $_SERVER['HTTP_HOST'].$uri;
-
-    header("location: $path");
+     return [
+        'redirect' => true, 'uri' => $uri
+    ];
 }
 
 function parameter($param) {
