@@ -14,12 +14,12 @@ namespace Application\Model\Music;
  * @author Aluno
  */
 class Music {
-    public $id;
-    public $name;
-    public $artist;
-    public $duration;
-    public $link;
+        public $id;
+        public $name;
+        public $artist;
+        public $duration;
+        public $link;
 
-    public $allMusics = [];
+        public $allMusics = [];
     public $errors = [];
 }

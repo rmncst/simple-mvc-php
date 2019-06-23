@@ -24,4 +24,19 @@ class HomeController
         
         return view('home', $model);
     }
+
+    public function auth() {
+        $post = $_POST;
+        if($post['user'] == 'admin' && $post['password'] == 'p@ssw0rd' ) {
+            setSessionAuthorized();
+            return redirectToUri('/Home/Index');
+        }
+
+        return redirectToUri('/login.php');
+    }
+
+    public  function logout() {
+        unsetSessionAuthorized();
+        return redirectToUri('/login.php');
+    }
 }

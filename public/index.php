@@ -13,6 +13,10 @@ try {
 } catch (\Core\Exceptions\HttpException $e) {
     http_response_code($e->getStatusCode());
     echo $e->getMessage();
+} catch (\Core\Exceptions\UnauthorizedException $error) {
+//    http_response_code(401);
+    header('location: /login.php', true);
+    die();
 } catch (\Exception $error) {
     http_response_code(500);
     echo "Erro Inesperado na aplicação: ". $error->getMessage();

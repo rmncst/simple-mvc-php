@@ -16,6 +16,12 @@ use Application\Model\Music\Music;
  */
 class MusicController {
 
+    public function __construct()
+    {
+        setControllerSecure();
+    }
+
+
     public function index() {        
         $musicData = new MusicData();
         $model = new Music();
