@@ -4,7 +4,7 @@
     <div class="col-md-10">
         <h3>Gerênciar Músicas</h3>
     </div>
-    <div class="col-md-2">
+    <div class="col-md-2 text-right">
         <a class="btn btn-primary btn-xs" href="/Music/Form">
             Nova Musica
         </a>

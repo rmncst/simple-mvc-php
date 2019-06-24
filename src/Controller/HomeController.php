@@ -12,31 +12,16 @@ use Core\TableGateway;
 
 class HomeController
 {
-    /**
-     * @method POST
-     */
-    public function index($id = 0, $name = 1) {
-        $db = new TableGateway('music');
+    public function __construct()
+    {
+        setControllerSecure();
+    }
+
+    public function index(){
         $model = [
             'message' => 'Hello Darkness My Old Friend',
-            
         ];
-        
         return view('home', $model);
     }
 
-    public function auth() {
-        $post = $_POST;
-        if($post['user'] == 'admin' && $post['password'] == 'p@ssw0rd' ) {
-            setSessionAuthorized();
-            return redirectToUri('/Home/Index');
-        }
-
-        return redirectToUri('/login.php');
-    }
-
-    public  function logout() {
-        unsetSessionAuthorized();
-        return redirectToUri('/login.php');
-    }
 }

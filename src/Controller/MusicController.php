@@ -16,11 +16,9 @@ use Application\Model\Music\Music;
  */
 class MusicController {
 
-    public function __construct()
-    {
+    public function __construct() {
         setControllerSecure();
     }
-
 
     public function index() {        
         $musicData = new MusicData();
@@ -57,7 +55,7 @@ class MusicController {
         } else {
             $musicData->insert($fields);
         }
-        return $this->index();
+        return redirectToUri('/Music/Index');
     }
 
     public function edit($id) {
@@ -75,6 +73,6 @@ class MusicController {
         $musicData = new MusicData();
         $musicData->delete('id = '.$id);
 
-        return $this->index();
+        return redirectToUri('/Music/Index');
     }
 }

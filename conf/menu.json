@@ -1,7 +1,7 @@
 {
   "menu": [
     {
-      "label": "Dashboard",
+      "label": "Início",
       "icon": "fas fa-fw fa-tachometer-alt",
       "link": "/Home/Index",
       "children": null
@@ -15,16 +15,6 @@
           "label": "Musicas",
           "icon": null,
           "link": "/Music/Index"
-        },
-        {
-          "label": "Register",
-          "icon": null,
-          "link": "/Home/Index"
-        },
-        {
-          "label": "Forgot Password",
-          "icon": null,
-          "link": "/Home/Index"
         }
       ]
     },

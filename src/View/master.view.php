@@ -24,10 +24,7 @@
                             <i class="fas fa-user-circle fa-fw"></i>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                            <a class="dropdown-item" href="#">Settings</a>
-                            <div class="dropdown-divider"></div>
-<!--                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>-->
-                            <a class="dropdown-item" href="/Home/Logout">Logout</a>
+                            <a class="dropdown-item" href="/Authentication/Logout">Logout</a>
                         </div>
                     </li>
                 </ul>

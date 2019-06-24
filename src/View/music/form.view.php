@@ -33,9 +33,9 @@
                     <button class="btn btn-primary">
                         Salvar
                     </button>
-                    <button class="btn btn-outline-info" type="reset">
+                    <a class="btn btn-outline-info" type="reset" href="/Music/Index">
                         Cancelar
-                    </button>
+                    </a>
                 </div>
             </div>
         </form>
